@@ -22,7 +22,10 @@ $(document).ready(function(){
       $('#zipCode').val("");
 
       // process data
-      
+      document.getElementById('name').innerHTML = "<b>Name</b>: Bob I. Jones, MD";
+      document.getElementById('specialty').innerHTML = "<b>Specialty</b>: Cardiology";
+      document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: 219742";
+      document.getElementById('address').innerHTML = "<b>Workplace Address</b>: 1234 ABC Ln, Sunnyvale, CA, 91111";
 
       // info accordion fadein
       $('#info').css('opacity', 1);
