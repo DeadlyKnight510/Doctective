@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('#firstForm').submit(function(e) {
       e.preventDefault();
       var firstName = $('#firstName').val().toUpperCase();
+      console.log(firstName);
       var lastName = $('#lastName').val().toUpperCase();
       var zipCode = $('#zipCode').val();
       if (firstName === "" || firstName === null) {
@@ -22,7 +23,11 @@ $(document).ready(function(){
           url: 'redis.php',
           data: 'autocomplete='+lastName+','+firstName+','+zipCode,
           success: function(data) {
-		var output = data.split(',');
+		          var output = data.split(',');
+              if (output === undefined) {
+                Materialize.toast('No physician with the entered combination of information was found.', 3000, 'rounded');
+                return;
+              }
               document.getElementById('name').innerHTML = "<b>Name</b>: " + output[2] + " " + output[3] + ". " + output[1];
               document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + output[12];
               document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + output[0];
