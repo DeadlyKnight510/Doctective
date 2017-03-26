@@ -1,7 +1,11 @@
+<!DOCTYPE html>
+<em>
+
+
 <html>
 <head>
 	<title>Medical</title>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
 
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,17 +15,16 @@
 
 </head>
 <body>
-	<div class+"container">
-		<div class="row">
-			<div class="col-md-offset-4 col-md-4" style="color:black">
+		<div class="colomn" id="colomn1">
+		<div class="customrow">
+<!--		class="col-md-offset-8 col-md-4"-->
 				<h3 style="text-align:center"></h3>
 				<div class="form-style-8">
 				  <h2>Physician Report</h2>
-				  <form>
-				    <input type="text" name="fname" placeholder="First Name" />
-				    <input type="text" name="lname" placeholder="Last Name" />
-				    <input type="text" name="state" placeholder="State" />
-				    <input type="submit" class="button" name="get" value="Get Percentage" />
+<!--				  <form>-->
+				    <input type="text" name="fname" placeholder="Psyician's name" id="psyName"/>
+				    <input type="text" name="state" placeholder="County" id="count"/>
+				    <input type="submit" class="button" name="get" value="Go" id="getButton"/>
 				    <p></p>
 
 				    <script type="text/javascript">
@@ -34,16 +37,61 @@
 					                success: function(data) {
 					                    alert(data);
 					                    $("p").text(data);
-
 					                }
 					            });
 						   });
 						});
 					</script>
-				  </form>
+<!--				  </form>-->
+			</div>
+		</div>
+	</div>
+	<div class="colomn" style="display:none" id="colomn2">
+		<div class="row">
+		
+			<div style="color:black">
+				<h3 style="text-align:center"></h3>
+				<div class="form-style-8">
+				  <h2>Physician Report</h2>
+<!--				  <form>-->
+				    <input type="text" name="fname" placeholder="Psyician's name" />
+				    <input type="text" name="state" placeholder="County" />
+				    <input type="submit" class="button" name="get" value="Get Percentage" />
+				    <p></p>
+
+				    <script type="text/javascript">
+					    var opened = true;
+						$(document).ready(function(){
+					        $("button").click(function(){
+					        	alert("hello");
+					            $.ajax({
+					                type: 'POST',
+					                url: 'support.php',
+					                success: function(data) {
+					                    alert(data);
+					                    $("p").text(data);
+					                }
+					            });
+						   });
+							$( "#getButton" ).click(function() {
+  								if((document.getElementById("psyName").value != "" || document.getElementById("count").value != "") && opened == true){
+									$( "#colomn2" ).animate({
+    
+    								width: "toggle"
+  								}, 400);
+									opened = false;
+								}});
+								
+								
+						});
+					</script>
+<!--				  </form>-->
 				</div>
 			</div>
 		</div>
 	</div>
+<!--	<div class="colomn"></div>-->
 </body>
 </html>
+
+</em>
