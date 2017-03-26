@@ -1,97 +1,115 @@
-<!DOCTYPE html>
-<em>
-
-
+<!doctype html>
 <html>
 <head>
-	<title>Medical</title>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
-
-	<link rel="stylesheet" href="style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<meta charset="utf-8">
+<title>index</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
+
+
 <body>
-		<div class="colomn" id="colomn1">
-		<div class="customrow">
-<!--		class="col-md-offset-8 col-md-4"-->
-				<h3 style="text-align:center"></h3>
-				<div class="form-style-8">
-				  <h2>Physician Report</h2>
-<!--				  <form>-->
-				    <input type="text" name="fname" placeholder="Physician's name" id="phyName"/>
-				    <input type="text" name="state" placeholder="County" id="count"/>
-				    <input type="submit" class="button" name="get" value="Go" id="getButton"/>
-				    <p></p>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var height = $(window).height();
+		var temp = $("#colomn1").height();
+		var temp2 = $("#colomn2").height();
+		var final = (height)/2-(temp)/2;
+		var set = final.toString();
+		document.getElementById("colomn1").style.marginTop = set+"px";
+		document.getElementById("colomn2").style.marginTop = set+"px";
+	});
+</script>
+<div class="colomn" id="colomn1">
+	<input class="primText" type="text" name="fname" placeholder="Hospital's name" id="psyName"/>
+	<input class="primText" type="text" name="state" placeholder="County" id="count"/>
+	<input type="submit" class="primButton" name="get" value="Go" id="getButton" style="margin: 15px;"/>
+</div>
+<script type="text/javascript">
 
-				    <script type="text/javascript">
-					    $(document).ready(function(){
-					        $("button").click(function(){
-					        	alert("hello");
-					            $.ajax({
-					                type: 'POST',
-					                url: 'support.php',
-					                success: function(data) {
-					                    alert(data);
-					                    $("p").text(data);
-					                }
-					            });
-						   });
-						});
-					</script>
-<!--				  </form>-->
-			</div>
-		</div>
-	</div>
-	<div class="colomn" style="display:none" id="colomn2">
-		<div class="row">
+	var opened = true;
+	$(".primButton").click(function() {
+		if((document.getElementById("psyName").value != "" || document.getElementById("count").value != "") && opened == true){
+			$( "#colomn2" ).show().animate({
 
-			<div style="color:black">
-				<h3 style="text-align:center"></h3>
-				<div class="form-style-8">
-				  <h2>Physician Report</h2>
-<!--				  <form>-->
-				    <input type="text" name="fname" placeholder="Physician's name" />
-				    <input type="text" name="state" placeholder="County" />
-				    <input type="submit" class="button" name="get" value="Get Percentage" />
-				    <p></p>
+    			width: "250px"
+  			}, 400);
+			opened = false;
+			defHead();
+	}});
+</script>
+<div class="colomn" id="colomn2" style="display: none">
+	<h1 class="midHead" id="topMidHead" style="border-bottom: #AAAAAA 1px solid;"></h1>
 
-				    <script type="text/javascript">
-					    var opened = true;
-						$(document).ready(function(){
-					        $("button").click(function(){
-					        	alert("hello");
-					            $.ajax({
-					                type: 'POST',
-					                url: 'support.php',
-					                success: function(data) {
-					                    alert(data);
-					                    $("p").text(data);
-					                }
-					            });
-						   });
-							$( "#getButton" ).click(function() {
-  								if((document.getElementById("phyName").value != "" || document.getElementById("count").value != "") && opened == true){
-									$( "#colomn2" ).animate({
+	<p id="cred" class="midHeadLocData"></p>
+	<p id="provider" class="midHeadLocData"></p>
+	<p id="npiDisp" class="midHeadLocData"></p>
+	<p id="proZip" class="midHeadLocData"></p>
+	<p id="proHos" class="midHeadLocData"></p>
+	<p id="extraAdd" class="midHeadLocData" style="border-bottom: #AAAAAA 1px solid; padding-bottom: 10px;"></p>
+	<h1 class="midHead" style="margin-bottom: 10px; padding-top: 0; margin-top: 10px;">Hospital Sponsers</h1>
+	<script type="text/javascript">
+		function defHead(){
+			var docFirst = "Frank";
+			var docLast = "Spoon";
+			var docMid = "J";
+			var NPI = "11235";
+			var cred = "brain surgeon";
+			var add1 = "6343 hemia crt.";
+			var add2 = "9754 osteo lane";
+			var city = "los santos";
+			var zip = "99999";
+			var hos = "Magic better place";
+			var state = "CA";
+			var country = "US";
+			var MPI = "idk";
+			var provider = "Kaiser"
+			var spons = ["your","mum","and","cat"]
+			var sponBtn = [];
+			$("#topMidHead").html(docFirst + " " + docMid + " " + docLast);
+			$("#proZip").html(hos)
+			$("#proHos").html(add1);
+			$("#cred").html(cred);
+			$("#extraAdd").html(city + "," + state + "," + country + "," + zip);
+			$("#npiDisp").html("NPI: " + NPI);
+			$("#provider").html(provider);
+			for(i = 0; i<spons.length; i++){
+				sponBtn.push(document.createElement("BUTTON"));
+				var t = document.createTextNode(spons[i]);
+				sponBtn[i].appendChild(t);
+				sponBtn[i].className = "compBtn";
+				$("#colomn2").append(sponBtn[i]);
+			}
 
-    								width: "toggle"
-  								}, 400);
-									opened = false;
-								}});
+		}
+		var curIn = 0;
+		$(".compBtn").click(function(){
+			var index = sponBtn.indexOf(this);
+			alert(index);
+			if(index == curIn){
+				$( "#colomn3" ).hide().animate({
+
+    				width: "0"
+  				}, 400);
+				alert("piss");
+			}
+			else{
+				curIn = index;
+				$("#colomn3").show().animate({
+					width: "250"
+				}, 400);
+				alert("mnm");
+			}
+		});
+
+	</script>
 
 
-						});
-					</script>
-<!--				  </form>-->
-				</div>
-			</div>
-		</div>
-	</div>
-<!--	<div class="colomn"></div>-->
+
+</div>
+<div class="colomn" id="colomn3" style="display: none">
+
+</div>
 </body>
 </html>
-
-</em>
+>>>>>>> 02bb7936415f2925a41a62e2ae33e56cd2ce98cd
