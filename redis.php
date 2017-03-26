@@ -23,9 +23,7 @@ catch (Exception $e) {
 function get($input)
 {
 	$redis = new Predis\Client();
-	$arr = $input;
-	echo $arr;
-	$out = $redis->get($arr);
+	$out = $redis->get($input);
 	echo $out;
 }
    if (isset($_POST['autocomplete'])) {
