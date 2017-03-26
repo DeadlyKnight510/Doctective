@@ -20,7 +20,7 @@ with csvfile as lines:
 			if(cols.count(idx) == 0):
 				nt.append(w.strip("\""))
 	
-		print(",".join(nt))
+		print(",".join(nt).strip())
 		
 	
 

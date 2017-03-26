@@ -26,15 +26,15 @@ with fname as file:
                 continue
             cols = []
             for c in col:	
-                cols.append(info[c].strip('\"'))
+                cols.append(info[c].strip('\"').strip())
             fullkey = True
             for i in cols: 
-                if i == "": fullkey = False
+                if i.strip() == "": fullkey = False
             if(not fullkey): continue
-            output = "SET \"" + ",".join(cols) + "\" \""
+            output = "SET \"" + (",".join(cols)).strip() + "\" \""
             for item in info:
-                output += item.strip('"') + ","
-            output = output[0:-2]
+                output += item.strip('"').strip() + ","
+            output = output[0:-2].strip()
             output += "\""
-            print(output)
+            print(output.strip())
         firstline = False
