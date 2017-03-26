@@ -19,10 +19,21 @@
 		document.getElementById("colomn2").style.marginTop = set+"px";
 	});
 </script>
+<div class="overCon">
 <div class="colomn" id="colomn1">
+	<div class="overCon">
+	<div style="display:table-cell;vertical-align:middle;">
+	<div style="margin-left:auto;margin-right:auto;">
 	<input class="primText" type="text" name="fname" placeholder="Hospital's name" id="psyName"/>
+	</div>
+	<div style="margin-left:auto;margin-right:auto;">
 	<input class="primText" type="text" name="state" placeholder="County" id="count"/>
+		</div>
+	<div style="margin-left:auto;margin-right:auto;">
 	<input type="submit" class="primButton" name="get" value="Go" id="getButton" style="margin: 15px;"/>
+		</div>
+	</div>
+	</div>
 </div>
 <script type="text/javascript">
 
@@ -37,7 +48,7 @@
 			defHead();
 	}});
 </script>
-<div class="colomn" id="colomn2" style="display: none">
+<div class="colomn" id="colomn2" style="display: none; text-align: center; align-content: center; margin: auto;">
 	<h1 class="midHead" id="topMidHead" style="border-bottom: #AAAAAA 1px solid;"></h1>
 	
 	<p id="cred" class="midHeadLocData"></p>
@@ -47,6 +58,11 @@
 	<p id="proHos" class="midHeadLocData"></p>
 	<p id="extraAdd" class="midHeadLocData" style="border-bottom: #AAAAAA 1px solid; padding-bottom: 10px;"></p>
 	<h1 class="midHead" style="margin-bottom: 10px; padding-top: 0; margin-top: 10px;">Hospital Sponsers</h1>
+	<div class="overCon" style="margin:auto;">
+		<div style="display:table-cell;vertical-align:middle; text-align: center; align-content: center;" id="btnCol">
+			
+		</div>
+	</div>
 	<script type="text/javascript">
 		function defHead(){
 			var docFirst = "Frank";
@@ -73,11 +89,16 @@
 			$("#npiDisp").html("NPI: " + NPI);
 			$("#provider").html(provider);
 			for(i = 0; i<spons.length; i++){
+				
+				var div = document.createElement("div");
+				div.style.marginLeft = "auto";
+				div.style.marginRight = "auto";
 				sponBtn.push(document.createElement("BUTTON"));
 				var t = document.createTextNode(spons[i]);
 				sponBtn[i].appendChild(t);
 				sponBtn[i].className = "compBtn";
-				$("#colomn2").append(sponBtn[i]);
+				div.appendChild(sponBtn[i]);
+				$("#btnCol").append(div);
 			}
 			
 		}
@@ -109,5 +130,6 @@
 <div class="colomn" id="colomn3" style="display: none">
 	
 </div>
+	</div>
 </body>
 </html>

@@ -10,8 +10,9 @@ body {
 	
 }
 .colomn {
-	display: inline-grid;
+	display: table-cell;
 	text-align: center;
+	vertical-align: middle;
 	background-color: rgb(230,230,230);
 	margin-right: auto;
 	margin-left:auto;
@@ -37,5 +38,8 @@ body {
 }
 .midHeadLocData {
 	margin-bottom: 5px; margin-top: 0; font-family: Arial, Helvetica, sans-serif;
+}
+.overCon {
+	display:table;
 }
 
