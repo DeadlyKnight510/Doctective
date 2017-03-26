@@ -36,7 +36,7 @@ $(document).ready(function(){
       document.getElementById('name').innerHTML = "<b>Name</b>: " + data[2] + " " + data[3] + ". " + data[1];
       document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + data[12];
       document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + data[0];
-      document.getElementById('address').innerHTML = "<b>Workplace Address</b>: " + data[6] + ", " + data[8] + ", " + data[10] + ", " + data[11];
+      document.getElementById('address').innerHTML = "<b>Workplace Address</b>: " + data[6] + ", " + data[8] + ", " + data[9].substring(0,5) + ", " + data[10] + ", " + data[11];
 
       // info accordion fadein
       $('#info').css('opacity', 1);
