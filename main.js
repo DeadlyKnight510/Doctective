@@ -16,10 +16,6 @@ $(document).ready(function(){
         Materialize.toast('Please enter your physician\'s zip code!', 3000, 'rounded');
         return;
       }
-      // clear forms
-//      $('#firstName').val("");
-//      $('#lastName').val("");
-//      $('#zipCode').val("");
 
       // process data
       //var csv;
@@ -35,8 +31,13 @@ $(document).ready(function(){
               document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + output[0];
               document.getElementById('address').innerHTML = "<b>Workplace Address</b>: " + output[6] + ", " + output[8] + ", " + output[9].substring(0,5) + ", " + output[10] + ", " + output[11];
 
+              // clear forms
+             $('#firstName').val("");
+             $('#lastName').val("");
+             $('#zipCode').val("");
               // info accordion fadein
               $('#info').css('opacity', 1);
+
           }
       });
       //console.log(csv);
