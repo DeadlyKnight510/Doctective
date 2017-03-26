@@ -22,25 +22,34 @@ $(document).ready(function(){
       $('#zipCode').val("");
 
       // process data
-      var csv;
+      //var csv;
       $.ajax({
           type: 'POST',
           url: 'redis.php',
           data: 'autocomplete='+document.getElementById("lastName").value+','+document.getElementById("firstName").value+','+document.getElementById("zipCode").value,
           success: function(data) {
               csv = data;
+              var data = csv2array(csv,',');
+              console.log(data);
+              document.getElementById('name').innerHTML = "<b>Name</b>: " + data[2] + " " + data[3] + ". " + data[1];
+              document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + data[12];
+              document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + data[0];
+              document.getElementById('address').innerHTML = "<b>Workplace Address</b>: " + data[6] + ", " + data[8] + ", " + data[9].substring(0,5) + ", " + data[10] + ", " + data[11];
+
+              // info accordion fadein
+              $('#info').css('opacity', 1);
           }
       });
-      console.log(csv);
-      var data = csv2array(csv,',');
-      console.log(data);
-      document.getElementById('name').innerHTML = "<b>Name</b>: " + data[2] + " " + data[3] + ". " + data[1];
-      document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + data[12];
-      document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + data[0];
-      document.getElementById('address').innerHTML = "<b>Workplace Address</b>: " + data[6] + ", " + data[8] + ", " + data[9].substring(0,5) + ", " + data[10] + ", " + data[11];
-
-      // info accordion fadein
-      $('#info').css('opacity', 1);
+      //console.log(csv);
+      // var data = csv2array(csv,',');
+      // console.log(data);
+      // document.getElementById('name').innerHTML = "<b>Name</b>: " + data[2] + " " + data[3] + ". " + data[1];
+      // document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + data[12];
+      // document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + data[0];
+      // document.getElementById('address').innerHTML = "<b>Workplace Address</b>: " + data[6] + ", " + data[8] + ", " + data[9].substring(0,5) + ", " + data[10] + ", " + data[11];
+      //
+      // // info accordion fadein
+      // $('#info').css('opacity', 1);
   })
 })
 function csv2array(data, delimeter) {
