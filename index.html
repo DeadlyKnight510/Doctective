@@ -1,97 +1,43 @@
-<!DOCTYPE html>
-<em>
-
-
-<html>
 <head>
-	<title>Medical</title>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
-
-	<link rel="stylesheet" href="style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	<title>Physician Information</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+	<script src="main.js"></script>
 </head>
-<body>
-		<div class="colomn" id="colomn1">
-		<div class="customrow">
-<!--		class="col-md-offset-8 col-md-4"-->
-				<h3 style="text-align:center"></h3>
-				<div class="form-style-8">
-				  <h2>Physician Report</h2>
-<!--				  <form>-->
-				    <input type="text" name="fname" placeholder="Psyician's name" id="psyName"/>
-				    <input type="text" name="state" placeholder="County" id="count"/>
-				    <input type="submit" class="button" name="get" value="Go" id="getButton"/>
-				    <p></p>
 
-				    <script type="text/javascript">
-					    $(document).ready(function(){
-					        $("button").click(function(){
-					        	alert("hello");
-					            $.ajax({
-					                type: 'POST',
-					                url: 'support.php',
-					                success: function(data) {
-					                    alert(data);
-					                    $("p").text(data);
-					                }
-					            });
-						   });
-						});
-					</script>
-<!--				  </form>-->
-			</div>
-		</div>
-	</div>
-	<div class="colomn" style="display:none" id="colomn2">
-		<div class="row">
-		
-			<div style="color:black">
-				<h3 style="text-align:center"></h3>
-				<div class="form-style-8">
-				  <h2>Physician Report</h2>
-<!--				  <form>-->
-				    <input type="text" name="fname" placeholder="Psyician's name" />
-				    <input type="text" name="state" placeholder="County" />
-				    <input type="submit" class="button" name="get" value="Get Percentage" />
-				    <p></p>
-
-				    <script type="text/javascript">
-					    var opened = true;
-						$(document).ready(function(){
-					        $("button").click(function(){
-					        	alert("hello");
-					            $.ajax({
-					                type: 'POST',
-					                url: 'support.php',
-					                success: function(data) {
-					                    alert(data);
-					                    $("p").text(data);
-					                }
-					            });
-						   });
-							$( "#getButton" ).click(function() {
-  								if((document.getElementById("psyName").value != "" || document.getElementById("count").value != "") && opened == true){
-									$( "#colomn2" ).animate({
-    
-    								width: "toggle"
-  								}, 400);
-									opened = false;
-								}});
-								
-								
-						});
-					</script>
-<!--				  </form>-->
+<body style="background-color:#b2ccf7">
+	<br> <br>
+	<div class="row">
+			 <div class="col s12 m4 offset-m4">
+				 <div class="hoverable card blue-grey">
+					 <div class=" card-content white-text">
+						 <span class="card-title" style="text-align:center">Physician Info</span>
+						 <p>Enter your physician's information:</p>
+						 <form id="firstForm">
+							 <input type="text" id="firstName" placeholder="Physician's first name" name="firstName">
+							 <input type="text" id="lastName" placeholder="Physician's last name" name="lastName">
+							 <input type="number" id="zipCode" placeholder="Physician's zip code" name="zipCode">
+							 <button class="waves-effect waves-light btn" id="submitBasic">Submit</button>
+						 </form>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+			<div class="row" id="info" opacity=0>
+				<div class="col s12 m6 offset-m3">
+					<ul class="collapsible" data-collapsible="accordion" style="text-align:center">
+					  <li>
+					    <div class="collapsible-header">Basic Information About Your Physician</div>
+					    <div class="collapsible-body"><p>Body text</p></div>
+					  </li>
+					  <li>
+					    <div class="collapsible-header">Second</div>
+					    <div class="collapsible-body"><p>Body text</p></div>
+					  </li>
+					</ul>
 				</div>
 			</div>
-		</div>
-	</div>
-<!--	<div class="colomn"></div>-->
 </body>
-</html>
-
-</em>
