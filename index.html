@@ -22,7 +22,7 @@
 				<div class="form-style-8">
 				  <h2>Physician Report</h2>
 <!--				  <form>-->
-				    <input type="text" name="fname" placeholder="Psyician's name" id="psyName"/>
+				    <input type="text" name="fname" placeholder="Physician's name" id="phyName"/>
 				    <input type="text" name="state" placeholder="County" id="count"/>
 				    <input type="submit" class="button" name="get" value="Go" id="getButton"/>
 				    <p></p>
@@ -48,13 +48,13 @@
 	</div>
 	<div class="colomn" style="display:none" id="colomn2">
 		<div class="row">
-		
+
 			<div style="color:black">
 				<h3 style="text-align:center"></h3>
 				<div class="form-style-8">
 				  <h2>Physician Report</h2>
 <!--				  <form>-->
-				    <input type="text" name="fname" placeholder="Psyician's name" />
+				    <input type="text" name="fname" placeholder="Physician's name" />
 				    <input type="text" name="state" placeholder="County" />
 				    <input type="submit" class="button" name="get" value="Get Percentage" />
 				    <p></p>
@@ -74,15 +74,15 @@
 					            });
 						   });
 							$( "#getButton" ).click(function() {
-  								if((document.getElementById("psyName").value != "" || document.getElementById("count").value != "") && opened == true){
+  								if((document.getElementById("phyName").value != "" || document.getElementById("count").value != "") && opened == true){
 									$( "#colomn2" ).animate({
-    
+
     								width: "toggle"
   								}, 400);
 									opened = false;
 								}});
-								
-								
+
+
 						});
 					</script>
 <!--				  </form>-->
