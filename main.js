@@ -28,6 +28,13 @@ $(document).ready(function(){
                 Materialize.toast('No physician with the entered combination of information was found.', 3000, 'rounded');
                 return;
               }
+              var indeces = [0,1,2,3,6,8,9,10,11,12];
+              for (var i in indeces) {
+                if (output[i] === undefined) {
+                  Materialize.toast('No physician with the entered combination of information was found.', 3000, 'rounded');
+                  return;
+                }
+              }
               document.getElementById('name').innerHTML = "<b>Name</b>: " + output[2] + " " + output[3] + ". " + output[1];
               document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + output[12];
               document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + output[0];
