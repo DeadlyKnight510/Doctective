@@ -5,6 +5,7 @@
 	<link href="style.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+	<script src="jquery.csv.min.js"></script>
 	<script src="main.js"></script>
 </head>
 
@@ -22,21 +23,6 @@
 							 <input type="text" id="lastName" placeholder="Physician's last name" name="lastName">
 							 <input type="number" id="zipCode" placeholder="Physician's zip code" name="zipCode">
 							 <button class="waves-effect waves-light btn" id="submitBasic">Submit</button>
-
-				    <script type="text/javascript">
-					    $(document).ready(function(){
-					        $(".btn").click(function(){
-					            $.ajax({
-					                type: 'POST',
-					                url: 'redis.php',
-							    data: 'autocomplete='+document.getElementById("lastName").value+','+document.getElementById("firstName").value+','+document.getElementById("zipCode").value,
-					                success: function(data) {
-					                    $(".name").text(data);
-					                }
-					            });
-						   });
-						});
-					</script>
 						 </form>
 					 </div>
 				 </div>
