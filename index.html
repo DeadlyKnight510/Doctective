@@ -22,6 +22,21 @@
 							 <input type="text" id="lastName" placeholder="Physician's last name" name="lastName">
 							 <input type="number" id="zipCode" placeholder="Physician's zip code" name="zipCode">
 							 <button class="waves-effect waves-light btn" id="submitBasic">Submit</button>
+
+				    <script type="text/javascript">
+					    $(document).ready(function(){
+					        $(".btn").click(function(){
+					            $.ajax({
+					                type: 'POST',
+					                url: 'redis.php',
+							    data: 'autocomplete='+document.getElementById("lastName").value+','+document.getElementById("firstName").value+','+document.getElementById("zipCode").value,
+					                success: function(data) {
+					                    $(".name").text(data);
+					                }
+					            });
+						   });
+						});
+					</script>
 						 </form>
 					 </div>
 				 </div>
@@ -34,7 +49,7 @@
 					    <div class="collapsible-header">Basic Personal Information About Your Physician</div>
 					    <div class="collapsible-body">
 								<ul class = "basicInfo">
-									<p>Name: </p>
+									<p class="name">Name: </p>
 									<p>Specialty: </p>
 									<p>National Provider Identifier: </p>
 									<p>Workplace Address: </p>
