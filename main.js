@@ -20,7 +20,7 @@ $(document).ready(function(){
       $.ajax({
           type: 'POST',
           url: 'redis.php',
-          data: 'autocomplete='+document.getElementById("lastName").value+','+document.getElementById("firstName").value+','+document.getElementById("zipCode").value,
+          data: 'autocomplete='+lastName+','+firstName+','+zipCode,
           success: function(data) {
 		var output = data.split(',');
               document.getElementById('name').innerHTML = "<b>Name</b>: " + output[2] + " " + output[3] + ". " + output[1];
