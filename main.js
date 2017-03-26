@@ -31,8 +31,9 @@ $(document).ready(function(){
               csv = data;
           }
       });
+      console.log(csv);
       var data = csv2array(csv,',');
-
+      console.log(data);
       document.getElementById('name').innerHTML = "<b>Name</b>: " + data[2] + " " + data[3] + ". " + data[1];
       document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + data[12];
       document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + data[0];
