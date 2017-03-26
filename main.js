@@ -20,6 +20,11 @@ $(document).ready(function(){
       $('#firstName').val("");
       $('#lastName').val("");
       $('#zipCode').val("");
+
+      // process data
+      
+
+      // info accordion fadein
       $('#info').css('opacity', 1);
   })
 })
