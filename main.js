@@ -1,8 +1,8 @@
 $(document).ready(function(){
   $('#firstForm').submit(function(e) {
       e.preventDefault();
-      var firstName = $('#firstName').val();
-      var lastName = $('#lastName').val();
+      var firstName = $('#firstName').val().toUpperCase();
+      var lastName = $('#lastName').val().toUpperCase();
       var zipCode = $('#zipCode').val();
       if (firstName === "" || firstName === null) {
         Materialize.toast('Please enter your physician\'s first name!', 3000, 'rounded');
