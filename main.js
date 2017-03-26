@@ -17,9 +17,9 @@ $(document).ready(function(){
         return;
       }
       // clear forms
-      $('#firstName').val("");
-      $('#lastName').val("");
-      $('#zipCode').val("");
+//      $('#firstName').val("");
+//      $('#lastName').val("");
+//      $('#zipCode').val("");
 
       // process data
       //var csv;
@@ -28,9 +28,8 @@ $(document).ready(function(){
           url: 'redis.php',
           data: 'autocomplete='+document.getElementById("lastName").value+','+document.getElementById("firstName").value+','+document.getElementById("zipCode").value,
           success: function(data) {
-              console.log(data);
-              var output = csv2array(data,',');
-              console.log(output);
+//		alert(data);
+		var output = data.split(',');
               document.getElementById('name').innerHTML = "<b>Name</b>: " + output[2] + " " + output[3] + ". " + output[1];
               document.getElementById('specialty').innerHTML = "<b>Specialty</b>: " + output[12];
               document.getElementById('npi').innerHTML = "<b>National Provider Identifier</b>: " + output[0];
